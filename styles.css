@@ -20,11 +20,15 @@ body {
   grid-auto-rows: 1fr;
 }
 
-.element div {
+.element {
   width: 100%;
   height: 100%;
   transition: 0.6s;
   cursor: pointer;
+}
+
+.element:hover {
+  opacity: 0.5;
 }
 
 .elementActivating {
@@ -32,42 +36,42 @@ body {
   opacity: 0.5;
 }
 
-.a div {
+.a {
   background-color: #f44336;
 }
 
-.b div {
+.b {
   background-color: #9c27b0;
 }
 
-.c div {
+.c {
   background-color: #2196f3;
 }
 
-.d div {
+.d {
   background-color: #009688;
 }
 
-.e div {
+.e {
   background-color: #ffc107;
 }
 
-.f div {
+.f {
   background-color: #e91e63;
 }
 
-.g div {
+.g {
   background-color: #00bcd4;
 }
 
-.h div {
+.h {
   background-color: #4caf50;
 }
 
-.i div {
+.i {
   background-color: #3f51b5;
 }
 
-.active div {
+.active {
   opacity: 0.5;
 }

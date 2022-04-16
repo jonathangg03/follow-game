@@ -1,4 +1,5 @@
 const $elements = document.querySelectorAll('.element')
+const $container = document.getElementById('container')
 // let level = parseInt(
 //   prompt('Ingresa el nivel en el que quieres jugar (debe ser un número)'),
 //   10
@@ -24,6 +25,7 @@ for (let i = 0; i < order.length; i++) {
 }
 
 let count = 0
+let clickCount = 0
 
 function activate(reference, counts = 0) {
   if (reference !== undefined) {
@@ -35,13 +37,21 @@ function activate(reference, counts = 0) {
           count++
           activate(reference, count)
         }, 500)
-      }, 1000)
+      }, 800)
     } else {
-      let current = count
-      count = 0
-      activate(actualArr[current], count)
+      $container.addEventListener('click', handleRespond)
     }
   }
+}
+console.log(order)
+
+function handleRespond(event) {
+  this.removeEventListener('click', handleRespond)
+  const actualTurn = count - 1
+  console.log(actualTurn)
+  let current = count
+  count = 0
+  activate(actualArr[current], count)
 }
 
 activate(actualArr[0])
