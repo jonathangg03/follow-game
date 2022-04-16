@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .container {
@@ -18,6 +19,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
+  border-radius: 10%;
+  overflow: hidden;
 }
 
 .element {
@@ -27,13 +30,19 @@ body {
   cursor: pointer;
 }
 
-.element:hover {
-  opacity: 0.5;
+/* .element:hover {
+  transform: scale(0.9);
+  border-radius: 10%;
+} */
+
+.elementActive {
+  transform: scale(0.9);
+  border-radius: 20%;
 }
 
 .elementActivating {
   transform: scale(0.8);
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .a {
@@ -74,4 +83,20 @@ body {
 
 .active {
   opacity: 0.5;
+}
+
+.level {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #74747459;
+  /* filter: blur(8px); */
+}
+
+.wins {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  bottom: 100vh;
 }
