@@ -5,7 +5,7 @@ const $container = document.getElementById('container')
 //   10
 // )
 
-let level = 5
+const level = 1
 
 const order = []
 
@@ -25,6 +25,7 @@ for (let i = 0; i < order.length; i++) {
 }
 
 let count = 0
+let turnCounts = 0
 let clickCount = 0
 
 function activate(reference, counts = 0) {
@@ -36,22 +37,40 @@ function activate(reference, counts = 0) {
           $elements[reference[counts]].classList.remove('active')
           count++
           activate(reference, count)
-        }, 500)
+        }, 800)
       }, 800)
     } else {
+      console.log('entro')
       $container.addEventListener('click', handleRespond)
     }
+  } else {
+    //Victoria!!
   }
 }
 console.log(order)
 
 function handleRespond(event) {
+  setTimeout(() => {
+    event.target.classList.remove('elementActive')
+  }, 300)
   this.removeEventListener('click', handleRespond)
+  event.target.classList.add('elementActive')
+
   const actualTurn = count - 1
-  console.log(actualTurn)
-  let current = count
-  count = 0
-  activate(actualArr[current], count)
+  if (parseInt(event.target.id) === actualArr[actualTurn][turnCounts]) {
+    turnCounts++
+    if (turnCounts === actualArr[actualTurn].length) {
+      //Era el ultimo
+      turnCounts = 0
+      let current = count
+      count = 0
+      activate(actualArr[current], count)
+    } else {
+      activate(actualArr[actualTurn], count)
+    }
+  } else {
+    alert('Perdio :(')
+  }
 }
 
 activate(actualArr[0])
